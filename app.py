@@ -8,6 +8,8 @@ from aiohttp import web
 def index(request):
     return web.Response(body=b'<h1>Awesome</h1>',content_type='text/html')
 
+# 这里用的是老代码，现在可以用async 代替@asyncio.coroutine，用await代替yield from。
+# async/await 关键字：python3.5 用于定义协程的关键字，async定义一个协程，await用于挂起阻塞的异步调用接口。
 async def init(loop):
         app = web.Application(loop=loop)
         app.router.add_route('GET', '/', index)
